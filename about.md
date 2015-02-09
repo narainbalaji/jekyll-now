@@ -16,4 +16,4 @@ As a student of the science of software engineering, I am constantly on the look
 
 ### Contact me
 
-[narainbalaji@gmail.com](mailto:email@domain.com)
+[narainbalaji@gmail.com](mailto:narainbalaji@gmail.com)

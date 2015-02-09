@@ -17,6 +17,8 @@ In a typical software development workflow, *tasks* flow through one of the foll
 
 We can model the development workflow as a sequence of processes one for each *activity*. A *task* them becomes a unit of work that flows from one process to the next. People working on the task contribute *capacity* to the process. In a ideal scenario, each process would have exactly the right amount of capacity at exactly the right time to handle the tasks. But in most cases, the amount of capacity needed to perform the tasks is greater than the amount of capacity available. So inevitably, inputs to the processes get queued up. It is important to note that in a software development workflow, work not only flows forward, but also in certain cases, backward. If a bug is found by the QA, the task naturally moves back into the development queue.
 
+![Software development queues](https://github.com/narainbalaji.github.io/raw/master/images/Queues.png "Software development queues")
+
 This model of a software development workflow provides a structure with which we can reason about the following well known observations.
 
 1. Estimating how long even a simple task would take is a hard problem
@@ -41,4 +43,4 @@ The limiting factor in a software development process is not stationary. If one 
 
 ### Defects should be fixed before new development can take place
 
-A version of a software system that has defects is usually not considered for shipment.
+A version of a software system that has defects is usually not considered for shipment. Developing new features on top of a version that is known to have defects increase the probability of finding regression defects later on. This increases the total effort required to develop software.
