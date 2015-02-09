@@ -13,7 +13,3 @@ As a Full Stack software developer, I enjoy designing, building, verifying, main
 As a practitioner of the craft of programming, I enjoy studying the properties of programs that are reliable and seek to express them in formal ways to replicate them in all of my programs. I also study the properties of programs that make them complicated and brittle to refrain from applying them in the programs that I write.
 
 As a student of the science of software engineering, I am constantly on the look out for techniques that help reduce the complexity in analyzing software systems. Great techniques I believe invariably leads to great products.
-
-### Contact me
-
-[narainbalaji@gmail.com](mailto:narainbalaji@gmail.com)
