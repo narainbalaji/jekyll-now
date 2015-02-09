@@ -43,4 +43,26 @@ The limiting factor in a software development process is not stationary. If one 
 
 ### Defects should be fixed before new development can take place
 
-A version of a software system that has defects is usually not considered for shipment. Developing new features on top of a version that is known to have defects increase the probability of finding regression defects later on. This increases the total effort required to develop software.
+A version of a software system that has defects is usually not considered for shipment. Developing new features on top of a version that is known to have defects increase the probability of finding regression defects later on. This decreases the throughput of development. In reality, defects do happen and tasks do get stalled. There are two ways in which we can limit the number of tasks that get blocked
+
+1. By making sure that the path in which the defect exists does not get executed using toggles
+2. By breaking the system down into independently verifiable modules.
+
+This way, only the development tasks that affect the path/module where the defect was found are impacted.
+
+### Knowledge silos are bad for the effectiveness of the process
+
+Knowledge silos exist when a limited number of people on the team monopolize knowledge about a particular area. In an ideal development process any member of the team should be able to work on any task. Why because, a team in that state is the easiest to scale. When knowledge silos exist in the team, the throughput of the development process is not limited by the number of developers, but by the amount of work a developer with the largest chunk of work can deliver. Consider the following picture
+
+![Silos](https://raw.githubusercontent.com/narainbalaji/narainbalaji.github.io/master/images/Silos.png "Silos")
+
+In this case, it is obvious that Dev1 is monopolizing knowledge about a portion of the system and hence the load cannot be shared between the two developers. Hence the capacity of Dev1 forms a bottleneck in the system. Adding resources to share the load of Dev2 does not have a great impact on the throughput of the system as a whole and adding resources to share the load of Dev1 may be counter productive because in that case, the actual capacity of Dev1 is reduced due to the additional task of having to transfer context to the new person.
+
+Silos are counter-productive for another reason. Developers have an incentive to reduce the size of their work queues as much as possible. This might act as a negative pressure for refactoring and feedback depending upon the nature of the developer as a person. Sometimes the negative pressure might be good as it forces the developer to stay focused and ignore un-necessary refactoring effort. But in my opinion, that should be the call of two or more developers who have second degree exposure to the code in question.
+
+There are many reasons why silos exist. The most natural reason is expertise in the subject. The second most common reason is unknowns. Both of these can be addressed by breaking down the task into smaller well-defined tasks. Doing so serves two purposes.
+
+1. It limits the amount of context that should be transferred in one shot
+2. Well defined closures tend to result in a reduction in the number of defects found. This is because, when the scope of a task is small, edge cases can be identified earlier in the lifecycle rather than later. All this will lead to an increase in the throughput of the system as a whole.
+
+While the results defined here may be true, it is perfectly natural that in a real world software development process there may be more urgent factors that forces you to de-prioritize counter-measures to some of the above problems. The objective of this post was to present a model which you can use can use to reason about the impact of such trade-offs that you may have to make. The silver bullet solution for any software development effort is identifying the problems that you are willing to live with.
