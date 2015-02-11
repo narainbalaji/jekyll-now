@@ -1,0 +1,56 @@
+Team Standards of operation
+
+1. Defect reduction excellence
+
+    1. Programming excellence
+
+       1. The average entropy in code - a practical indicator is tdd levels
+
+           Level 0 : Unit tests are not given any importance (just written to keep the manager or the code police happy)
+
+           Level 1 : Good unit tests are written
+
+           Level 2 : Unit tests are used to create better designs
+
+           Level 3 : Affirmative action is taken to reduce the reliance upon mocks (Indicative of better abstractions and low entropy) 
+
+    2. Analysis excellence
+
+       1. Identification of closures
+
+    3. Integration testing excellence
+
+       1. Can the entire system be deployed to a single developer machine and tested?
+
+       2. What is the granularity of tasks taken up for tests? Do we have to batch them together or can the tasks be tested individually?
+
+2. Feature improvement excellence - How does the team continuously seek to add value to the ecosystem? How many stable intermediate forms does the team have?
+
+   Level 1 - Having monitors that track the patterns of usage
+
+   Level 2 - Using the monitors to identify actionable items
+
+   Level 3 - Making the leap and scoping in improvement work as a part of spring or quarter planning
+
+   Level 4 - Measuring impact and iterating
+
+3. Learning excellence
+
+    1. Avg percentage of available tasks that developers can pick up.
+
+4. Operational excellence
+
+   Level 0: Having operational ticket targets
+
+   Level 1: Creating structures to help figure out the most problematic areas
+
+   Level 2: Actively analyzing, scoping and bringing improvement tasks into spring planning
+
+   Level 3: Having buckets for (Feature Improvement, Defect reduction , Operational excellence, Run of the mill tasks - that keep the system running) and assigning capacity to them so that each of them are given priority
+
+
+The most important pre-requisite to achieve all these is
+
+   1. Continuously evaluating the performance of the team with this structure to seek continuous feedback
+
+   2. Taking affirmative action to address action items

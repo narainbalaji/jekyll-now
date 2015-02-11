@@ -1,0 +1,82 @@
+Measuring code quality through entropy
+
+Entropy
+
+Physical sciences - The amount of randomness in the system
+
+Information theory In information theory, entropy is the average amount of information contained in each message received
+
+Software - The amount of information contained in parameters to a function or procedure
+
+eg
+
+isTrue(boolean a, boolean b, boolean c, boolean d)
+
+  return a && b && c && d;
+
+The amount of entropy here is 2 ^ 4 = 16
+
+Entropy is directly proportional to the number of test cases necessary to test the function. Higher the entropy, greater the probability that some cases are missed
+
+Entropy with non boolean variables
+
+sum(long a, long b)
+
+  return a + b;
+
+Here the entropy = Numberofunique values for long ^ 2
+
+For all practical purposes, this is a very large value. Since the goal of this metric is comparison, we can use asymptotic notation.
+
+O(N^2) where N is the number of unique values for the long data type.
+
+Procedural code does not lead to reduction in entropy
+
+   eg sum(long a, long b, long c){
+     return sum(a, b) + c;
+   }
+
+Entropy can be reduced using data abstractions. In fact reduction in entropy is an essential quality for a decomposition to be called an abstraction
+
+OngoingSum sum(OngoingSum sum, c){
+
+}
+
+@Immutable
+OngoingSum {
+
+   private final long value;
+
+   public OngoingSum(long a, long b)
+
+   public OngoingSum(long b)
+
+   public void longValue()
+}
+
+Data abstractions help limit the length of the flows
+
+  This makes it more testable
+
+  More decoupled - if a flow is long, bugs in the lines with lower numbers can affect bugs in the lines which higher numbers
+
+eg.
+
+function(int a){
+  if(figureoutSomething()){
+
+  }
+  // Do Something
+}
+
+can be rewritten as
+
+function (CustomClass a){
+  if(a.doesSomePropertyMatch()){
+    // Do something.
+  }
+}
+
+In the second case, care must be taken that CustomClass is an abstract representation and just not hiding the implementation of figureOutSomething
+
+This can be identified by the fact that you may have to mock CustomClass for tests
