@@ -71,12 +71,90 @@ function(int a){
 
 can be rewritten as
 
-function (CustomClass a){
+function boolean processing(CustomClass a){
   if(a.doesSomePropertyMatch()){
-    // Do something.
+    return true.
   }
+  return  false;
 }
 
 In the second case, care must be taken that CustomClass is an abstract representation and just not hiding the implementation of figureOutSomething
 
 This can be identified by the fact that you may have to mock CustomClass for tests
+
+In the second case though, the client has the responsibility for mapping integer to CustomClass. But ideally we wont want that.
+Hence we will use programmable semicolons (monads). The bind function of the monad will take care of converting the integer to CustomClass.
+Once we do this, we need not have boiler plate code in the clients.
+
+So the caller of the above function will now look like
+
+{
+  Function<CustomClass, Boolean> processing = new Function<>();
+  return new CustomClassInterpretation<Int>().elevate(a).bind(processing).value();
+}
+
+Here the elevate function takes an integer converts it into an CustomClassInterpretation object (it is elevating int to CustomClassInterpretation<Int>)
+
+How is this different from
+
+{
+   processing(mapper(a));
+}
+
+"Type elevation helps to translate the meaning of a function from a simple type to an elevated type there by greatly enhancing the reusability of the function"
+
+
+Consider the following object oriented code
+
+Integer {
+
+  // Adds value the current value
+  public add(int value){
+
+  }
+}
+
+and if you have a list of integers, you would like to add 2 to each element in the list, you do
+
+for(int element : list){
+  element.add(2);
+}
+
+and if you have a list of integers, you would like to multiply 2 to each element in the list, you do
+
+for(int element : list){
+  element.multiply(2);
+}
+
+These two snippets of code cannot be defined in the List class as the type of the elements in the list class is parameterized
+
+But in a monadic way, you can do this
+
+function add(int value, int a);
+
+function multiply(int value, int a);
+
+The List monad will now have bind function which applies a given lambda, applies it to all the elements in the list returning a list
+
+List<A>
+
+  List<B> each(Lambda<A,B> lambda)
+
+
+and then, you can "reuse" add and subtract as
+
+bind([1, 2], add(3))
+
+bind([1, 2], multiply(2))
+
+Now, let us consider two dimensional lists, this is how the code will look
+
+bind([[1, 2], [2, 3]], add(3))
+
+To make this possible, the paradigm should support
+
+  1. Monads (That provide the bind method)
+
+  2. Partial evaluations
+
+TODO: Figure out how to write bind for maps
