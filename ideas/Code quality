@@ -8,6 +8,7 @@ Information theory In information theory, entropy is the average amount of infor
 
 Software - The amount of information contained in parameters to a function or procedure
 
+
 eg
 
 isTrue(boolean a, boolean b, boolean c, boolean d)
@@ -82,6 +83,19 @@ In the second case, care must be taken that CustomClass is an abstract represent
 
 This can be identified by the fact that you may have to mock CustomClass for tests
 
+This is better than cyclomatic complexity. Cyclomatic complexity only counts the number of code flows, and completely ignores
+expression level complexity.
+
+For example, the complexity of |(a - 2 * x)| % (10 * b) where scenarios like a > 2 * x are ignored by cyclomatic complexity.
+
+The same code with correct data abstractions will look like
+
+ totalCoveredDistance = |(a - 2x)|;
+ totalAllowd = (10 * b);
+ totalCoveredDistance % totalAllowed
+
+Here the entropy of individual statements are much lesser than the original.
+--
 In the second case though, the client has the responsibility for mapping integer to CustomClass. But ideally we wont want that.
 Hence we will use programmable semicolons (monads). The bind function of the monad will take care of converting the integer to CustomClass.
 Once we do this, we need not have boiler plate code in the clients.
